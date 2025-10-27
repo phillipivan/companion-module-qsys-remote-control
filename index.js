@@ -45,6 +45,9 @@ const colours = {
 	white: combineRgb(255, 255, 255),
 	red: combineRgb(255, 0, 0),
 	green: combineRgb(0, 204, 0),
+	greenFull: combineRgb(0, 255, 0),
+	yellow: combineRgb(255, 255, 0),
+	grey: combineRgb(128, 128, 128),
 }
 
 class QsysRemoteControl extends InstanceBase {
@@ -1196,9 +1199,9 @@ class QsysRemoteControl extends InstanceBase {
 				const colors = opt.customColor
 					? [{ size: 100, color: opt.color ?? 0xffffff, background: opt.color ?? 0x000000, backgroundOpacity: 64 }]
 					: [
-							{ size: 50, color: combineRgb(0, 255, 0), background: combineRgb(0, 255, 0), backgroundOpacity: 64 },
-							{ size: 25, color: combineRgb(255, 255, 0), background: combineRgb(255, 255, 0), backgroundOpacity: 64 },
-							{ size: 25, color: combineRgb(255, 0, 0), background: combineRgb(255, 0, 0), backgroundOpacity: 64 },
+							{ size: 50, color: colours.greenFull, background: colours.greenFull, backgroundOpacity: 64 },
+							{ size: 25, color: colours.yellow, background: colours.yellow, backgroundOpacity: 64 },
+							{ size: 25, color: colours.red, background: colours.red, backgroundOpacity: 64 },
 						]
 				const options = {
 					width: feedback.image.width,
@@ -1294,7 +1297,7 @@ class QsysRemoteControl extends InstanceBase {
 					rectHeight: position == 'left' || position == 'right' ? 3 : opt.width,
 					strokeWidth: 1,
 					color: feedback.options.indicatorColor,
-					fillColor: combineRgb(128, 128, 128),
+					fillColor: colours.grey,
 					fillOpacity: 255,
 					offsetX: position == 'left' || position == 'right' ? ofsX1 : markerOffset(bLength, val, ofsX1),
 					offsetY:
